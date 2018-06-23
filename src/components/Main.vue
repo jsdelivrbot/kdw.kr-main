@@ -4,7 +4,7 @@
       <div :class="$style['list']">
         <div v-for="card in list" :class="$style['card']">
           <div :class="$style['title']">{{card.title}}</div>
-          <div :class="$style['desc']">{{card.desc}}</div>
+          <div :class="$style['desc']" v-html="card.desc"></div>
           <a :class="$style['url']" :href="card.url" target="_blank">{{card.url}}</a>
         </div>
       </div>
@@ -17,7 +17,7 @@ export default {
     return {
       list: [
         {title: '포트폴리오', desc: '김대운의 포트폴리오 사이트 입니다.', url: 'https://portfolio.kdw.kr'},
-        {title: '유틸', desc: '각종 기능을 모아둔 유틸 사이트 입니다. 인코딩/디코딩, 글자수 세기, 글자 뒤집기, 글자 변환 지원.', url: 'https://utils.kdw.kr'},
+        {title: '유틸', desc: '각종 기능을 모아둔 유틸 사이트 입니다.<br> 인코딩/디코딩, 글자수 세기, 글자 뒤집기, 글자 변환 지원.', url: 'https://utils.kdw.kr'},
         {title: '에듀', desc: '웹, 앱 등 독학을 위한 여러 자료를 모아둔 사이트 입니다.', url: 'https://edu.kdw.kr'},
       ]
     }
@@ -29,12 +29,11 @@ export default {
 .list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   flex-flow: row wrap;
 }
 .card {
-  width: 15rem;
-  margin: 1rem;
+  width: 20rem;
   height: 10rem;
   background-color: #ffffff;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
